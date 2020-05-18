@@ -42,6 +42,8 @@ public class ProductServiceImpl implements ProductService {
 		return productRepository.findAll(pageable).map(productMapper::toDto);
 	}
 
+	
+	
 	@Override
 	@Transactional(readOnly = true)
 	public Optional<ProductDTO> findOne(Long id) {

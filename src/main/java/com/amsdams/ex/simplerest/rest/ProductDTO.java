@@ -1,18 +1,21 @@
 package com.amsdams.ex.simplerest.rest;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.Date;
+import java.time.Instant;
+import java.time.LocalDate;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import lombok.AccessLevel;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 
 @Data
-public class ProductDTO {
+public class ProductDTO implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Long id;
 	private String title;
 	private BigDecimal price;
@@ -21,9 +24,14 @@ public class ProductDTO {
 	private String teaserUrl;
 
 	@JsonIgnore
-	private Date updatedAt;
+	private Instant updatedAt;
 
 	@JsonIgnore
-	private Date createdAt;
+	private Instant createdAt;
 
+	private LocalDate publishOn;
+    private LocalDate unpublishOn;
+    private LocalDate archiveOn;
+    
+    private Status status;
 }
